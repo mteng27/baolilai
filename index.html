@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetroSnap Polaroid</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              handwriting: ['Caveat', 'cursive'],
+            },
+            colors: {
+              'retro-bg': '#fdfbf7',
+              'retro-dark': '#1a1a1a',
+              'cork-light': '#e8dccc',
+              'cork-dark': '#d4c5b0',
+            },
+            boxShadow: {
+              'polaroid': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+              'polaroid-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+              'camera-body': 'inset 0 0 20px rgba(0,0,0,0.5), 0 20px 30px -10px rgba(0,0,0,0.5)',
+              'lens': 'inset 0 0 20px rgba(0,0,0,0.8), 0 5px 10px rgba(0,0,0,0.3)',
+            },
+            animation: {
+              'eject': 'ejectPhoto 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+              'develop': 'developPhoto 2s ease-in forwards',
+            },
+            keyframes: {
+              ejectPhoto: {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(20%)' },
+              },
+              developPhoto: {
+                '0%': { filter: 'brightness(0.1) contrast(1.5) sepia(1)' },
+                '100%': { filter: 'brightness(1) contrast(1.1) sepia(0.2)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom Corkboard Pattern */
+      .bg-cork {
+        background-color: #e8dccc;
+        background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4c5b0' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1v1H5zM0 5h1v1H0z'/%3E%3C/g%3E%3C/svg%3E");
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .lens-reflection {
+        background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%);
+      }
+      .rainbow-stripe {
+        background: linear-gradient(to right, 
+          #FF3B30 0%, #FF3B30 16.6%,
+          #FF9500 16.6%, #FF9500 33.2%,
+          #FFCC00 33.2%, #FFCC00 49.8%,
+          #4CD964 49.8%, #4CD964 66.4%,
+          #5AC8FA 66.4%, #5AC8FA 83%,
+          #007AFF 83%, #007AFF 100%
+        );
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "html2canvas": "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.esm.js",
+    "firebase/app": "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js",
+    "firebase/firestore": "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.6.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

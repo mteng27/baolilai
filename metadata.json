@@ -1,0 +1,7 @@
+{
+  "name": "RetroSnap Polaroid",
+  "description": "A desktop polaroid camera experience where you snap photos and pin them to your digital wall.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
